@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>formulaires</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="bootstrap.css" rel="stylesheet" type="text/css"/>
+        <link href="tp04_css.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <div class="container">
+            
+        
+            <div class="panel-body">
+        <form  method="post" action="lo07_analyse_formulaire.php">
+            <div class="form-group">
+            <label>nom</label>
+            <input type="text" class="form-control" name="nom" value="Musk">
+            </div>
+            <div class="form-group">
+            <label>prenom</label>
+            <input type="text" class="form-control" name="prenom" value="Elon">
+            </div>
+            <div class="form-group">
+            <label>email</label>
+            <input type="text" class="form-control" name="email" value="elon.musk@utt.fr">
+            </div>
+            <div class="form-group">
+            <label>date_naissance</label>
+            <input type="text" class="form-control" name="date_naissance" value="1960-01-01">
+            </div>
+            <div class="form-group">
+            <label>sexe</label>
+            <input type="text" class="form-control" name="sexe" value="M">
+            </div>
+            <div class="form-group">
+            <label>origine</label>
+            <input type="text" class="form-control" name="origine" value="DUT STID">
+            </div>
+            <div class="form-group">
+            <label>ST07</label>
+            <div>
+            <label>oui
+                <input type="radio"  name="ST07" value="oui" checked>
+            </label>
+            <label>non
+                <input type="radio" name="ST07" value="non">
+            </label>
+            </div>
+            </div>
+            <div class="form-group">
+            <label>ST09</label>
+            <div>
+            <label>oui
+                <input type="radio"  name="ST09" value="oui" >
+            </label>
+            <label>non
+                <input type="radio" name="ST09" value="non" checked>
+            </label>
+            </div>
+            </div>
+            <div class="form-group">
+            <label>ST10</label>
+            <div>
+            <label>oui
+                <input type="radio"  name="ST10" value="oui" >
+            </label>
+            <label>non
+                <input type="radio" name="ST10" value="non" checked>
+            </label>
+            </div>
+            </div>
+            <div class="form-group">
+            <label>SE</label>
+            <div>
+            <label>oui
+                <input type="radio"  name="SE" value="oui" checked>
+            </label>
+            <label>non
+                <input type="radio" name="SE" value="non" >
+            </label>
+            </div>
+            </div>
+            <div class="form-group">
+            <label>modules</label>
+           <div>
+            <label class="checkbox-inline">
+            <input type="checkbox" name="modules[]"  value="GL02" checked> GL02
+            </label>
+            <label class="checkbox-inline">
+            <input type="checkbox" name="modules[]" value="NF20" checked> NF20
+            </label>
+            <label class="checkbox-inline">
+            <input type="checkbox" name="modules[]" value="LO02" checked> LO02
+            </label>
+            </div>
+            </div>
+            <div class="form-group">
+            <label>textarea</label>
+            <input type="text" class="form-control" name="textarea" value="Bonjour..."><br>
+            </div>
+            <input type="submit" value="submit">
+        </form>
+        </div>
+        
+            
+            
+        </div>
+    </body>
+</html>

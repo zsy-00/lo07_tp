@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>ISI de l'UTT</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="bootstrap.css" rel="stylesheet"/>
+        <link href="tp02_css.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <div class="container">
+           
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-header">
+            <a class="navbar-brand" herf="#">Module LO07</a>
+        </div>
+    
+        <ul class="nav navbar-nav">
+            <li class="active"> <a herf="#">TCBR</a></li>
+            <li class="active"> <a herf="#">Filières</a></li>
+            <li class="active"> <a herf="#">Capsules</a></li>
+            <li class="active"> <a herf="#">TPE</a></li>
+            <li class="active"> <a herf="#">Stages</a></li>
+            <li class="active"> <a herf="#">SE</a></li>
+        </ul>
+        </nav>
+       
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <h3 class="panel-title"> Utilisation d'un Jumbotron(cet élément est un panel-success).</h3>
+            </div>
+            <div class="panel-body">
+                Le jumbotron est un composant de Bootstrap.Il affiche un bloc situé en haut d'un site.Ce bloc
+                est plus large de la page.Le but est d'attirer l'attention de l'utilisateur sur un élément particulier.
+                Ce bloc est gris par défaut,mais il est possible de le modifier grâceau CSS et à JavaScript pour qu'il 
+                puisse contenir une image située en arrière-plan.
+            </div>
+        </div>
+            <div class="jumbotron">
+                <h2>Programme ISI de l'UTT</h2>
+                <p>Le programme ISI de l'UTT dispose actuellement de trois filières ATN,IPL et VDC...</p> 
+            </div>
+        
+            
+        <div class = "panel panel-primary">
+            <div class = "panel-heading">
+                <h3 class = "Panel title">Mise en place d'une pagigation</h3>
+            </div>
+        <div class = "panel-body">
+            We use a large block of connected links for pagination,making kinks hard to miss and easily scalable-all
+            while providing large hit areas. Pagination is built with list HTML elements so screen readers can announce 
+            the number of available links. Use a wrapping "nav" element to identify it as a navigation section to screen
+            readers and other assistive technologies.
+        </div>
+      </div>
+            
+        <nav aria-label="Page navigation exemple">
+            <ul class="pagination">
+            <li class="page-item"> <a herf="#">TCBR</a></li>
+            <li class="page-item"> <a herf="#">FIL</a></li>
+            <li class="page-item"> <a herf="#">Capsules</a></li>
+            <li class="page-item"> <a herf="#">TPE</a></li>
+            <li class="page-item"> <a herf="#">Stages</a></li>
+            <li class="page-item"> <a herf="#">SE</a></li>
+        </ul>
+        </nav>    
+            
+        <div class = "panel panel-primary">
+            <div class = "panel-heading">
+                <h3 class = "Panel title">Mise en place de bouton avec des badges</h3>
+            </div>
+        <div class = "panel-body">
+            Je vous propose de découvrir les badges de Bootstraps. Ils pourront être utiles pour afficher et mettre en avant
+            une valeur numérique. Pour les utiliser, il faut tout simplement utiliser la class:.badge
+        </div>
+      </div>
+            
+        <button type="button" class="btn btn-success">
+        ATN 
+        </button>
+        <button type="button" class="btn btn-danger">
+        IPL <span class="badge badge-light">30</span>
+        </button>
+        <button type="button" class="btn btn-warning">
+        VDC <span class="badge badge-light">8</span>
+        </button>
+        
+        
+        <div class = "panel panel-primary">
+            <div class = "panel-heading">
+                <h3 class = "Panel title">Mise en place de grilles de présentation</h3>
+            </div>
+            <div class = "panel-body">
+            Le système de grilles est le coeur de Bootstrap qui considère qu'une ligne "row" fait 12 colonnes.
+            </div>
+        </div>
+            <h3>Grille de 3 colonnes(lg-4)</h3>    
+        <div class="row">
+            <div class="col-lg-4">
+                Col1
+            </div>
+            <div class="col-lg-4">
+                Col2
+            </div>
+            <div class="col-lg-4">
+                Col3
+            </div>
+        </div>
+            <h3>Grille de 2 et 3 colonnes</h3>
+        <div class="row">    
+            <div class="col-lg-6">
+                1 of 2
+            </div>
+            <div class="col-lg-6">
+                2 of 2
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-2">
+                1 of 3
+            </div>
+            <div class="col-lg-6">
+                2 of 3
+            </div>
+            <div class="col-lg-4">
+                3 of 3 
+            </div>
+        </div>
+            <h3>Grille du l'exercice 4 du TP Web 02</h3>
+            <div class="row">
+            <p class="text-center">Boite1</p>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    Boite2
+                </div>
+                <div class="col-sm-4">
+                    Boite3
+                </div>
+                <div class="col-sm-4">
+                    Boite4
+                </div>
+            </div>
+            <div class="row">
+            <p class="text-left">Boite4(Boite5)</p>
+            </div>
+            
+        <div class = "panel panel-info">
+            <div class = "panel-heading">
+                <h3 class = "Panel title">Utilisation de card avec une image</h3>
+            </div>
+        <div class = "panel-body">
+            A card is a fixable and extensible content container.It includes options for headers and footers,
+            a wide variety of content,contextual background colors, and powerful display options. If you are 
+            familiar with Bootstrap 3, cards replace oour old panels, wells, and thumbnails.Similar functionality
+            to those components is avaible as modifier classes for cards.
+        </div>
+        </div>
+            
+            <div class="row">
+            <div class="col-lg-4">
+                <div class="col-lg-12">
+                <img src="image/ATN.png" width="150" height="150" alt="ATN"/>
+                </div>
+                <div class="col-lg-12">
+                ATN
+                </div>
+                <div class="col-lg-12">
+                Accompagnement de la Transformation Numérique:permet de comprendre comment, grâce au SI,on peux ajouter de
+                la vqleur à la plupart des activités de l'organisation.
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="col-lg-12">
+                <img src="image/IPL.jpg" width="150" height="150" alt="IPL"/>
+                </div>
+                <div class="col-lg-12">
+                IPL
+                </div>
+                <div class="col-lg-12">
+                Innovation Par le Logiciel: forme à la conception et à la mise en oeuvre de projects logieiel en équipe depuis
+                la peuve de conception jusqu'à l'industrialisation de la production logiciel.
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="col-lg-12">
+                <img src="image/VDC.png" width="150" height="150" alt="VDC"/>
+                </div>
+                <div class="col-lg-12">
+                VDC
+                </div>
+                <div class="col-lg-12">
+                Valorisation des Données et des Connaissances:développe les compétences qui permettent de passer de la donnée brute
+                à de l'information actionnable tout en développant un regard critique sur les techniques utilisées.
+                </div>
+            </div>
+        </div>
+            
+            <div class = "panel panel-danger">
+            <div class = "panel-heading">
+                <h3 class = "Panel title">Utilisation de tableaux</h3>
+            </div>
+        <div class = "panel-body">
+            Due to the widespread use of tables across third-party widgets like calendars and date pickers, we've designed our tables to 
+            be opt-in. Just add the base class. table to any table, then extend with custom styles or our various included modifier classes.
+        </div>
+            </div>
+            
+            <div class="table-responsive">          
+       <table class="table table-striped table-bordered">
+         <thead>
+           <tr>
+             <th>#</th>
+             <th>ATN</th>
+             <th>IPL</th>
+             <th>VDC</th>
+           </tr>
+         </thead>
+         <tbody>
+           <tr>
+             <td>CS</td>
+             <td><ul class="list-group">
+             <li class="list-group-item">IF09</li>
+             <li class="list-group-item">IF22</li>
+             </ul></td>
+             <td><ul class="list-group">
+             <li class="list-group-item">IF05</li>
+             <li class="list-group-item">IF10</li>
+             </ul></td>
+             <<td><ul class="list-group">
+             <li class="list-group-item">IF17</li>
+             <li class="list-group-item">IF29</li>
+             </ul></td>
+           </tr>
+           <tr>
+             <td>TM</td>
+             <td><ul class="list-group">
+             <li class="list-group-item">IF20</li>
+             <li class="list-group-item">IF34</li>
+             </ul></td>
+             <td><ul class="list-group">
+             <li class="list-group-item">IF26</li>
+             <li class="list-group-item">IF31</li>
+             <li class="list-group-item">LO10</li>
+             </ul></td>
+             <<td><ul class="list-group">
+             <li class="list-group-item">IF28</li>
+             <li class="list-group-item">IF34</li>
+             </ul></td>
+           </tr>
+           
+         </tbody>
+       </table>
+      </div>
+            
+            
+            <div class = "panel panel-success">
+            <div class = "panel-heading">
+                <h3 class = "Panel title">Utilisation de formulaire</h3>
+            </div>
+        <div class = "panel-body">
+            Bootstrap nous offre de nombreeuses classes pour nous permettre de structurer nos formulaires 
+            et d'ajouter des styles aux différents éléments des formulaires.
+        </div>
+            </div>
+            
+            
+            <div class="form-group">
+            <label for="lastname" >Nom?</label>
+            <input type="text" class="form-control" id="lastname" placeholder="Donnez votre nom">
+            </div>
+            <div class="form-group">
+            <label for="firstname" >Prénom?</label>
+            <input type="text" class="form-control" id="firstname" placeholder="Donnez votre prénom">
+            </div>
+            <div class="form-group">
+            <label for="exempleInputEmail" >Email?</label>
+            <input type="text" class="form-control" id="exempleInputEmail" placeholder="Donnez votre Email">
+            </div>
+            <div class="form-group">
+            <label for="date" >Date de naissance?</label>
+            <input type="text" class="form-control" id="date" placeholder="jj/mm/aaaa">
+            </div>
+            
+            <label for="name">Sexe?</label>
+           <div>
+            <label class="radio-inline">
+        <input type="radio" name="optionsRadiosinline"  value="option1" checked>Masculin
+    </label>
+    <label class="radio-inline">
+        <input type="radio" name="optionsRadiosinline"   value="option2"> Féminin
+        </label>
+        </div>
+            <label for="name">Validations?</label>
+<div>
+    <label class="checkbox-inline">
+        <input type="checkbox" id="Checkbox1" > ST07
+    </label>
+    <label class="checkbox-inline">
+        <input type="checkbox" id="Checkbox2" > ST09
+    </label>
+    <label class="checkbox-inline">
+        <input type="checkbox" id="Checkbox3" > ST10(désactivé)
+    </label>
+     <label class="checkbox-inline">
+        <input type="checkbox" id="Checkbox3" > SE
+    </label>
+    
+</div>
+            
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </body>
+</html>

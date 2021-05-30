@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="tp04_css.css" rel="stylesheet" type="text/css"/>
+        <link href="bootstrap.css" rel="stylesheet" type="text/css"/> 
+    </head>
+    <body>
+         <div class="container">
+            
+        
+            <div class="panel-body">
+        <form method="post" action="tp04_inscription_post_action.php">
+            <div class="form-group">
+            <label>nom</label>
+            <input type="text" class="form-control" name="a" value="Musk">
+            </div>
+            <div class="form-group">
+            <label>prenom</label>
+            <input type="text" class="form-control" name="b" value="Elon">
+            </div>
+            <div class="form-group">
+            <label>email</label>
+            <input type="text" class="form-control" name="c" value="elon.musk@utt.fr">
+            </div>
+            <div class="form-group">
+            <label>date_naissance</label>
+            <input type="text" class="form-control" name="d" value="1960-01-01">
+            </div>
+            <div class="form-group">
+            <label>sexe</label>
+            <input type="text" class="form-control" name="e" value="M">
+            </div>
+            <div class="form-group">
+            <label>origine</label>
+            <input type="text" class="form-control" name="f" value="DUT STID">
+            </div>
+            <div class="form-group">
+            <label>ST07</label>
+            <div>
+            <label>oui
+                <input type="radio"  name="g" value="oui" checked>
+            </label>
+            <label>non
+                <input type="radio" name="g" value="non">
+            </label>
+            </div>
+            </div>
+            <div class="form-group">
+            <label>ST09</label>
+            <div>
+            <label>oui
+                <input type="radio"  name="h" value="oui" >
+            </label>
+            <label>non
+                <input type="radio" name="h" value="non" checked>
+            </label>
+            </div>
+            </div>
+            <div class="form-group">
+            <label>ST10</label>
+            <div>
+            <label>oui
+                <input type="radio"  name="i" value="oui" >
+            </label>
+            <label>non
+                <input type="radio" name="i" value="non" checked>
+            </label>
+            </div>
+            </div>
+            <div class="form-group">
+            <label>SE</label>
+            <div>
+            <label>oui
+                <input type="radio"  name="j" value="oui" checked>
+            </label>
+            <label>non
+                <input type="radio" name="j" value="non" >
+            </label>
+            </div>
+            </div>
+            <div class="form-group">
+            <label>modules</label>
+            <div>
+            <label class="checkbox-inline">
+            <input type="checkbox" name="k[]"  value="GL02" checked> GL02
+            </label>
+            <label class="checkbox-inline">
+            <input type="checkbox" name="k[]" value="NF20" checked> NF20
+            </label>
+            <label class="checkbox-inline">
+            <input type="checkbox" name="k[]" value="LO02" checked> LO02
+            </label>
+            </div>
+            </div>
+            <div class="form-group">
+            <label>textarea</label>
+            <input type="text" class="form-control" name="l" value="Bonjour..."><br>
+            </div>
+            <input type="submit" value="submit">
+        </form>
+        </div>
+        
+            
+            
+        </div>
+    </body>
+</html>

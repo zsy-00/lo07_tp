@@ -1,0 +1,12 @@
+body {
+    margin: 40px 0 40px;
+    background-color: lemonchiffon;
+}
+
+.panel-heading{
+    font-weight: bold;
+}
+
+.panel{
+    margin-top: 20px;
+}
