@@ -149,13 +149,13 @@ class ModelStockGlobal {
  // pas possible d'avoir 2 constructeurs
  public function __construct($label = NULL, $global = NULL) {
   // valeurs nulles si pas de passage de parametres
+     
   if (!is_null($label)) {
    $this->label = $label;
    $this->global = $global;
-
   }
-
- function setLabel($label) {
+ }
+ function setLable ($label) {
   $this->label = $label;
  }
 
@@ -164,13 +164,13 @@ class ModelStockGlobal {
  }
 
  function getLabel() {
-  $this->label = $label;
+  return $this->label;
  }
 
  function getGlobal() {
-  $this->global = $global;
+  return $this->global;
  }
- }
+ 
 
  public static function sommeStock() {
   try {
