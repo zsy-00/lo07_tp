@@ -1,59 +1,67 @@
 
 <!-- ----- debut ControllerVaccin -->
 <?php
-require_once '../model/ModelCentre.php';
+require_once '../model/ModelStock.php';
 
-class ControllerCentre {
+class ControllerStock {
  // --- Liste des Vaccin
- public static function centreReadAll() {
-  $results = ModelCentre::getAll();
+ public static function stockReadAll() {
+  $results = ModelStock::getAll();
   // ----- Construction chemin de la vue
   include 'config.php';
-  $vue = $root . '/app/view/centre/viewAll.php';
+  $vue = $root . '/app/view/stock/viewAll.php';
   if (DEBUG)
-   echo ("ControllerCentre : centreReadAll : vue = $vue");
+   echo ("ControllerStock : stockReadAll : vue = $vue");
   require ($vue);
  }
-
+ 
  // Affiche un formulaire pour sélectionner un id qui existe
- public static function centreReadId() {
-  $results = ModelCentre::getAllId();
+ public static function stockReadId() {
+  $results = ModelStock::getAllId();
 
   // ----- Construction chemin de la vue
   include 'config.php';
-  $vue = $root . '/app/view/centre/viewId.php';
+  $vue = $root . '/app/view/stock/viewId.php';
   require ($vue);
  }
 
  // Affiche un Vaccin particulier (id)
- public static function centreReadOne() {
-  $centre_id = $_GET['id'];
-  $results = ModelCentre::getOne($centre_id);
+ public static function stockReadOne() {
+  $stock_id = $_GET['id'];
+  $results = ModelStock::getOne($stock_id);
 
   // ----- Construction chemin de la vue
   include 'config.php';
-  $vue = $root . '/app/view/centre/viewAll.php';
+  $vue = $root . '/app/view/stock/viewAll.php';
   require ($vue);
  }
 
  // Affiche le formulaire de creation d'un vaccin
- public static function centreCreate() {
+ public static function stockCreate() {
   // ----- Construction chemin de la vue
   include 'config.php';
-  $vue = $root . '/app/view/centre/viewInsert.php';
+  $vue = $root . '/app/view/stock/viewInsert.php';
   require ($vue);
  }
 
  // Affiche un formulaire pour récupérer les informations d'un nouveau Vaccin.
  // La clé est gérée par le systeme et pas par l'internaute
- public static function centreCreated() {
+ public static function stockCreated() {
   // ajouter une validation des informations du formulaire
-  $results = ModelCentre::insert(
+  $results = ModelStock::insert(
        htmlspecialchars($_GET['label']), htmlspecialchars($_GET['adresse'])
   );
   // ----- Construction chemin de la vue
   include 'config.php';
-  $vue = $root . '/app/view/centre/viewInserted.php';
+  $vue = $root . '/app/view/stock/viewInserted.php';
+  require ($vue);
+ }
+ 
+ public static function stockGlobal() {
+  $results = ModelStockGlobal::sommeStock();
+  // ----- Construction chemin de la vue
+  include 'config.php';
+  $vue = $root . '/app/view/stock/viewGlobal.php';
   require ($vue);
  }
  

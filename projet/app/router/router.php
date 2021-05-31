@@ -4,6 +4,7 @@
 require ('../controller/ControllerVaccin.php');
 require ('../controller/ControllerCentre.php');
 require ('../controller/ControllerPatient.php');
+require ('../controller/ControllerStock.php');
 
 require ('../controller/ControllerVaccination.php');
 
@@ -24,6 +25,8 @@ switch ($action) {
  case "vaccinReadId" :
  case "vaccinCreate" :
  case "vaccinCreated" :
+ case "vaccinMiseAJour";
+ case "vaccinMiseAJoured";
      ControllerVaccin::$action();
   break;
 
@@ -41,6 +44,15 @@ switch ($action) {
  case "patientCreate" :
  case "patientCreated" :
      ControllerPatient::$action();
+  break;
+
+ case "stockReadAll" :
+ case "stockReadOne" :
+ case "stockReadId" :
+ case "stockCreate" :
+ case "stockCreated" :
+ case "stockGlobal";
+     ControllerStock::$action();
   break;
 
 // case "producteurReadAll" :

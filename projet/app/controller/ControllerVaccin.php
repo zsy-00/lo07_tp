@@ -1,4 +1,3 @@
-
 <!-- ----- debut ControllerVaccin -->
 <?php
 require_once '../model/ModelVaccin.php';
@@ -50,7 +49,7 @@ class ControllerVaccin {
  public static function vaccinCreated() {
   // ajouter une validation des informations du formulaire
   $results = ModelVaccin::insert(
-      htmlspecialchars($_GET['id']), htmlspecialchars($_GET['label']), htmlspecialchars($_GET['doses'])
+      htmlspecialchars($_GET['label']), htmlspecialchars($_GET['doses'])
   );
   // ----- Construction chemin de la vue
   include 'config.php';
@@ -58,6 +57,23 @@ class ControllerVaccin {
   require ($vue);
  }
  
+ public static function vaccinMiseAJour() {
+     $results = ModelVaccin::getAllId();
+  // ----- Construction chemin de la vue
+  include 'config.php';
+  $vue = $root . '/app/view/vaccin/viewMiseAJour.php';
+  require ($vue);
+ }
+ 
+ public static function vaccinMiseAJoured() {
+  $results = ModelVaccin::update(
+     htmlspecialchars($_GET['id']), htmlspecialchars($_GET['doses'])
+  );
+  // ----- Construction chemin de la vue
+  include 'config.php';
+  $vue = $root . '/app/view/vaccin/viewMiseAJoured.php';
+  require ($vue);
+ }
 }
 ?>
 <!-- ----- fin ControllerVaccin -->
