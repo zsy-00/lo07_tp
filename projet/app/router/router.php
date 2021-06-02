@@ -49,8 +49,8 @@ switch ($action) {
  case "stockReadAll" :
  case "stockReadOne" :
  case "stockReadId" :
- case "stockCreate" :
- case "stockCreated" :
+ case "stockAttribu" :
+ case "stockAttribued" :
  case "stockGlobal";
      ControllerStock::$action();
   break;
