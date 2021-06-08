@@ -1,4 +1,3 @@
-
 <!-- ----- debut ControllerVaccin -->
 <?php
 require_once '../model/ModelStock.php';
@@ -47,8 +46,10 @@ class ControllerStock {
  }
  
  public static function stockAttribued() {
-  $results = ModelStock::update(
-     htmlspecialchars($_GET['centre_id']), htmlspecialchars($_GET['vaccin_id']),htmlspecialchars($_GET['quantite'])
+    $centreId = ModelStock::getCentreID(htmlspecialchars($_GET['centre_label']));
+    $vaccinId = ModelStock::getVaccinID(htmlspecialchars($_GET['vaccin_label']));      
+    $results = ModelStock::update(
+     $centreId, $vaccinId,htmlspecialchars($_GET['quantite'])
   );
   // ----- Construction chemin de la vue
   include 'config.php';
@@ -58,8 +59,7 @@ class ControllerStock {
  
  public static function stockGlobal() {
   $results = ModelStockGlobal::sommeStock();
-  
-// ----- Construction chemin de la vue
+  // ----- Construction chemin de la vue
   include 'config.php';
   $vue = $root . '/app/view/stock/viewGlobal.php';
   require ($vue);

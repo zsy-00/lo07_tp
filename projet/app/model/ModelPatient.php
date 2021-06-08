@@ -5,16 +5,17 @@
 require_once 'Model.php';
 
 class ModelPatient {
- private $id, $nom, $prenom, $adresse;
+ private $id, $nom, $prenom, $adresse,$message;
 
  // pas possible d'avoir 2 constructeurs
- public function __construct($id = NULL, $nom = NULL, $prenom = NULL, $adresse = NULL) {
+ public function __construct($id = NULL, $nom = NULL, $prenom = NULL, $adresse = NULL,$message = NULL) {
   // valeurs nulles si pas de passage de parametres
   if (!is_null($id)) {
    $this->id = $id;
    $this->nom = $nom;
    $this->prenom = $prenom;
    $this->adresse = $adresse;
+   $this->message = $message;
   }
  }
 
@@ -34,6 +35,10 @@ class ModelPatient {
   $this->adresse = $adresse;
  }
 
+ function setMessage($message) {
+  $this->message = $message;
+ }
+ 
  function getId() {
   return $this->id;
  }
@@ -50,12 +55,16 @@ class ModelPatient {
   return $this->adresse;
  }
  
+  function getMessage() {
+  return $this->message;
+ }
+ 
  
 // retourne une liste des id
  public static function getAllId() {
   try {
    $database = Model::getInstance();
-   $query = "select id from patient";
+   $query = "select id, nom, prenom from patient";
    $statement = $database->prepare($query);
    $statement->execute();
    $results = $statement->fetchAll(PDO::FETCH_COLUMN, 0);
@@ -136,16 +145,79 @@ class ModelPatient {
   }
  }
 
- public static function update() {
-  echo ("ModelPatient : update() TODO ....");
-  return null;
+ public static function update($id,$adresse) {
+   try {
+   $database = Model::getInstance();
+   $query = "update patient set adresse = :adresse where id = :id";
+   $statement = $database->prepare($query);
+   $statement->execute([
+     'id' => $id,
+     'adresse' => $adresse
+   ]);
+   return $id;
+  } catch (PDOException $e) {
+   printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
+   return NULL;
+  }
  }
 
- public static function delete() {
-  echo ("ModelPatient : delete() TODO ....");
-  return null;
- }
+ public static function delete($id)
+    {
+        try {
+            $database = Model::getInstance();
+            $query = "SELECT * FROM patient WHERE id = :id";
+            $testExistence = $database->prepare($query);
+            $testExistence->execute([
+                'id' => $id
+            ]);
+            if ($testExistence->rowCount() == 0) {
+                return null;
+            } else {
+                $results = ModelPatient::getOne($id);
+                $query = "DELETE FROM patient WHERE id = :id";
+                $statement = $database->prepare($query);
+                $statement->execute([
+                    'id' => $id
+                ]);
+                return $results[0];
+            }
+        } catch (PDOException $e) {
+            printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
+            return -1; // Error exit code
+        }
+    }
 
+  public static function update1($id,$message) {
+   try {
+   $database = Model::getInstance();
+   $query = "update patient set message = :message where id = :id";
+   $statement = $database->prepare($query);
+   $statement->execute([
+     'id' => $id,
+     'message' => $message
+   ]);
+   return $id;
+  } catch (PDOException $e) {
+   printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
+   return NULL;
+  }
+ }
+ 
+ public static function getOnesaufadress($id) {
+  try {
+   $database = Model::getInstance();
+   $query = "select id,nom,prenom,message from patient where id = :id";
+   $statement = $database->prepare($query);
+   $statement->execute([
+     'id' => $id
+   ]);
+   $results = $statement->fetchAll(PDO::FETCH_CLASS, "ModelPatient");
+   return $results;
+  } catch (PDOException $e) {
+   printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
+   return NULL;
+  }
+ }
 }
 ?>
 <!-- ----- fin ModelPatient -->

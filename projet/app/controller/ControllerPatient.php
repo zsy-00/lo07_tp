@@ -17,11 +17,9 @@ class ControllerPatient {
 
  // Affiche un formulaire pour sélectionner un id qui existe
  public static function patientReadId() {
-  $results = ModelPatient::getAllId();
-
-  // ----- Construction chemin de la vue
+        $results = ModelPatient::getAllId();
   include 'config.php';
-  $vue = $root . '/app/view/patient/viewId.php';
+  $vue = $root . '/app/view/patient/viewId1.php';
   require ($vue);
  }
 
@@ -54,6 +52,54 @@ class ControllerPatient {
   // ----- Construction chemin de la vue
   include 'config.php';
   $vue = $root . '/app/view/patient/viewInserted.php';
+  require ($vue);
+ }
+ 
+  public static function patientDeleted()
+    {
+        $patient_id = $_GET['id'];
+        // Supprime la valeur
+        $results = ModelPatient::delete($patient_id);
+        // ----- Construction chemin de la vue
+        include 'config.php';
+        $vue = $root . '/app/view/patient/viewDeleted.php';
+        require($vue);
+
+    }
+    
+  public static function patientAdresseMiseAJour() {
+     $results = ModelPatient::getAllId();
+  // ----- Construction chemin de la vue
+  include 'config.php';
+  $vue = $root . '/app/view/patient/viewMiseAJour.php';
+  require ($vue);
+ }
+ 
+ public static function patientAdresseMiseAJoured() {
+  $results = ModelPatient::update(
+     htmlspecialchars($_GET['id']), htmlspecialchars($_GET['adresse'])
+  );
+  // ----- Construction chemin de la vue
+  include 'config.php';
+  $vue = $root . '/app/view/patient/viewMiseAJoured.php';
+  require ($vue);
+ }
+ 
+  public static function patientMessage() {
+  $results = ModelRdv::getPatientInfo();
+  // ----- Construction chemin de la vue
+  include 'config.php';
+  $vue = $root . '/app/view/patient/viewLaissermessage.php';
+  require ($vue);
+ }
+  
+  public static function patientMessaged() {
+  $results = ModelPatient::update1(
+     htmlspecialchars($_GET['patient_id']), htmlspecialchars($_GET['message'])
+  );
+  $results1 = ModelPatient::getOnesaufadress($results);
+  include 'config.php';
+  $vue = $root . '/app/view/patient/viewLaissermessaged.php';
   require ($vue);
  }
  

@@ -1,4 +1,3 @@
-
 <!-- ----- debut Modelstock -->
 
 <?php
@@ -29,8 +28,6 @@ class ModelStock {
  function setQuantite($quantite) {
   $this->quantite = $quantite;
  }
-
-
  
  function getCentre_id() {
   return $this->centre_id;
@@ -44,7 +41,7 @@ class ModelStock {
   return $this->quantite;
  }
  
- 
+
  public static function getAll() {
   try {
    $database = Model::getInstance();
@@ -59,14 +56,13 @@ class ModelStock {
   }
  }
 
- public static function getOne($centre_id,$vaccin_id) {
+ public static function getOne($centre_id) {
   try {
    $database = Model::getInstance();
-   $query = "select * from stock where centre_id = :centre_id, vaccin_id= :vaccin_id";
+   $query = "select * from stock where centre_id = :centre_id";
    $statement = $database->prepare($query);
    $statement->execute([
-     'centre_id' => $centre_id,
-     'vaccin_id' => $vaccin_id
+     'centre_id' => $centre_id
    ]);
    $results = $statement->fetchAll(PDO::FETCH_CLASS, "ModelStock");
    return $results;
@@ -75,28 +71,64 @@ class ModelStock {
    return NULL;
   }
  }
- 
-  public static function update($centre_id, $vaccin_id, $quantite) {
+
+public static function getCentreID($centre_label) {
      try {
    $database = Model::getInstance();
-   $query = "update stock set quantite= :quantite  where vaccin_id = :vaccin_id, centre_id= :centre_id";
+   $query = "select id from centre where label = :label";
    $statement = $database->prepare($query);
-   $statement->execute([
-     'vaccin_id' => $vaccin_id,
-     'centre_id' => $centre_id,
-     'quantite' => $quantite
+   $statement->execute([      
+    'label' => $centre_label
    ]);
-   return array();
+   $results = $statement->fetchAll(PDO::FETCH_COLUMN, 0);
+   return $results[0];
   } catch (PDOException $e) {
    printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
    return NULL;
   }
  }
-
+ public static function getVaccinID($vaccin_label) {
+     try {
+   $database = Model::getInstance();
+   $query = "select id from vaccin where label = :label ";
+   $statement = $database->prepare($query);
+   $statement->execute([
+    'label' => $vaccin_label
+   ]);
+   $results = $statement->fetchAll(PDO::FETCH_COLUMN, 0);
+   return $results[0];
+  } catch (PDOException $e) {
+   printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
+   return NULL;
+  }
+ }
+ 
+public static function update($centreId, $vaccinId, $quantite) {
+     try {
+        $database = Model::getInstance();
+        $query = "select * from stock where vaccin_id = :vaccin_id and centre_id= :centre_id";
+        $testExistence = $database->prepare($query);
+            $testExistence->execute([
+                'vaccin_id' => $vaccinId,
+                'centre_id' => $centreId,
+            ]);
+            if ($testExistence->rowCount() == 0) {
+                return null;
+            } else {
+        $query = "update stock set quantite = quantite + :quantite where vaccin_id = :vaccin_id and centre_id= :centre_id";
+        $statement = $database->prepare($query);
+        $statement->execute([
+          'vaccin_id' => $vaccinId,
+          'centre_id' => $centreId,
+          'quantite' => $quantite
+        ]);
+            return $centreId;}
+  } catch (PDOException $e) {
+   printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
+   return NULL;
+  }
+ }
 }
-
-
-
 
 class ModelStockGlobal {
  private $label, $global;
@@ -124,8 +156,7 @@ class ModelStockGlobal {
 
  function getGlobal() {
   return $this->global;
- }
- 
+ } 
 
  public static function sommeStock() {
   try {
@@ -140,11 +171,7 @@ class ModelStockGlobal {
    return NULL;
   }
  }
-
 }
-
-
-
 
 class ModelStockAttribu {
  private $id, $label;
@@ -166,9 +193,6 @@ class ModelStockAttribu {
   $this->label = $label;
  }
 
-
-
-
  function getId() {
   return $this->id;
  }
@@ -176,7 +200,6 @@ class ModelStockAttribu {
  function getLabel() {
   return $this->label;
  }
- 
  
 // retourne une liste des centre_id
  
@@ -194,7 +217,6 @@ class ModelStockAttribu {
   }
  }
  
- 
 public static function getAllIdvaccin() {
   try {
    $database = Model::getInstance();
@@ -208,7 +230,6 @@ public static function getAllIdvaccin() {
    return NULL;
   }
  }
- 
  
  public static function getOne($centre_id) {
   try {
@@ -226,9 +247,7 @@ public static function getAllIdvaccin() {
   }
  }
 
-
 }
-
 ?>
 
 <!-- ----- fin Modelstock -->

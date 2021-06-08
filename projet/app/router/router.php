@@ -5,7 +5,7 @@ require ('../controller/ControllerVaccin.php');
 require ('../controller/ControllerCentre.php');
 require ('../controller/ControllerPatient.php');
 require ('../controller/ControllerStock.php');
-
+require ('../controller/ControllerRdv.php');
 require ('../controller/ControllerVaccination.php');
 
 // --- récupération de l'action passée dans l'URL
@@ -17,6 +17,12 @@ parse_str($query_string, $param);
 
 // --- $action contient le nom de la méthode statique recherchée
 $action = htmlspecialchars($param["action"]);
+
+//// --- Modification du routeur pour prendre en compt l'ensemble des parametres
+//$action = $param['action'];
+//
+//// --- On supprime l'élément action de la structure
+//$args = $param;
 
 // --- Liste des méthodes autorisées
 switch ($action) {
@@ -36,13 +42,18 @@ switch ($action) {
  case "centreCreate" :
  case "centreCreated" :
      ControllerCentre::$action();
-  break;
+ break;
 
  case "patientReadAll" :
  case "patientReadOne" :
  case "patientReadId" :
  case "patientCreate" :
  case "patientCreated" :
+ case "patientDeleted":
+ case "patientAdresseMiseAJour";
+ case "patientAdresseMiseAJoured";
+ case "patientMessage";
+ case "patientMessaged";
      ControllerPatient::$action();
   break;
 
@@ -55,19 +66,24 @@ switch ($action) {
      ControllerStock::$action();
   break;
 
-// case "producteurReadAll" :
-// case "producteurReadOne" :
-// case "producteurReadId" :
-// case "producteurCreate" :
-// case "producteurCreated" :
-// case "producteurReadRegion" :
-// case "producteurCountRegion" :
-//     ControllerProducteur::$action();
-//  break;
-
-case "mesPropositions" :
-     ControllerVaccionation::$action();
+case "rdvReadId";
+case "rdvSelect" :
+case "rdvSelected" :
+case "rdvDistribution":
+case "rdvVaccin0":
+case "rdvVaccin1":
+case "rdvVaccin2":
+     ControllerRdv::$action();
   break;
+
+case "documentationInnovationl" :
+case "documentationInnovation2" :
+case "documentationInnovation3" :
+case "vueGlobal" :
+  ControllerVaccination::$action();
+  break;
+
+
  // Tache par défaut
  default:
   $action = "vaccinAccueil";
